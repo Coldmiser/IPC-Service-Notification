@@ -19,6 +19,7 @@ WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR PURPOSE.
 #region Using directives 
 using Squirrel;
 using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 #endregion
 
@@ -31,7 +32,17 @@ namespace Service
             // You can put this on a button click if you prefer, but this will automatically check & update
             // Modified to use a discard:  https://stackoverflow.com/questions/22629951/suppressing-warning-cs4014-because-this-call-is-not-awaited-execution-of-the
             _ = CheckForUpdates();
+
+            AddVersionNumber();
             Console.WriteLine("Hello World!");
+        }
+
+        // Getting version information from:  https://youtu.be/W8Qu4qMJyh4?t=2048
+        static private void AddVersionNumber()
+        {
+            System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            FileVersionInfo versionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
+            Console.WriteLine(versionInfo.FileVersion);
         }
 
         // This method was modified and made static:  https://stackoverflow.com/questions/2505181/error-an-object-reference-is-required-for-the-non-static-field-method-or-prop
