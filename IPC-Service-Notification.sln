@@ -7,7 +7,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{012DB22E-3BEC-4BF0-96AF-ED4207DA3D4E}"
 	ProjectSection(SolutionItems) = preProject
+		Server.1.0.0.nupkg = Server.1.0.0.nupkg
 		SolutionReadMe.html = SolutionReadMe.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Releases", "Releases", "{6058125F-DC8B-46C3-8A7C-ACE9D0F20730}"
+	ProjectSection(SolutionItems) = preProject
+		Releases\RELEASES = Releases\RELEASES
+		Releases\Server-1.0.0-full.nupkg = Releases\Server-1.0.0-full.nupkg
+		Releases\Setup.exe = Releases\Setup.exe
+		Releases\Setup.msi = Releases\Setup.msi
 	EndProjectSection
 EndProject
 Global
@@ -23,6 +32,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6058125F-DC8B-46C3-8A7C-ACE9D0F20730} = {012DB22E-3BEC-4BF0-96AF-ED4207DA3D4E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {182E1EF4-15E7-41FF-AC8D-DDBE23AFAE2C}
