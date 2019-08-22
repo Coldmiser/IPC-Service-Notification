@@ -17,10 +17,9 @@ WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR PURPOSE.
 \***********************************************************************************/
 
 #region Using directives 
-using Squirrel;
 using System;
 using System.Diagnostics;
-using System.Threading.Tasks;
+using Topshelf;
 #endregion
 
 namespace Service
@@ -31,9 +30,24 @@ namespace Service
         {
             // You can put this on a button click if you prefer, but this will automatically check & update
             // Modified to use a discard:  https://stackoverflow.com/questions/22629951/suppressing-warning-cs4014-because-this-call-is-not-awaited-execution-of-the
-            _ = CheckForUpdates();
 
             AddVersionNumber();
+            var exitCode = HostFactory.Run(x =>
+            {
+                x.Service<Heartbeat>(s =>
+                {
+                    s.ConstructUsing(Heartbeat => new Heartbeat());
+                    s.WhenStarted(heartbeat => heartbeat.Start());
+                    s.WhenStopped(heartbeat => heartbeat.Stop());
+                });
+                x.RunAsLocalSystem();
+                x.SetServiceName("HeartbeatService");
+                x.SetDisplayName("Heartbeat Service");
+                x.SetDescription("This is the sample heartbeat service");
+                x.StartAutomatically();
+            });
+            int exitCodeValue = (int)Convert.ChangeType(exitCode, exitCode.GetTypeCode());
+            Environment.ExitCode = exitCodeValue;
             Console.WriteLine("Hello World!");
         }
 
@@ -46,13 +60,6 @@ namespace Service
         }
 
         // This method was modified and made static:  https://stackoverflow.com/questions/2505181/error-an-object-reference-is-required-for-the-non-static-field-method-or-prop
-        static private async Task CheckForUpdates()
-        {
-            using (var manager = new UpdateManager(@"C:\Temp\Releases"))
-            {
-                await manager.UpdateApp();
-            }
-        }
 
     }
 }

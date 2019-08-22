@@ -7,20 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{012DB22E-3BEC-4BF0-96AF-ED4207DA3D4E}"
 	ProjectSection(SolutionItems) = preProject
-		Service.1.0.0.nupkg = Service.1.0.0.nupkg
-		Service.1.0.1.nupkg = Service.1.0.1.nupkg
 		SolutionReadMe.html = SolutionReadMe.html
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Releases", "Releases", "{11C569CB-9181-45A7-9FC3-D83407F55ED8}"
-	ProjectSection(SolutionItems) = preProject
-		Releases\RELEASES = Releases\RELEASES
-		Releases\Service-1.0.0-full.nupkg = Releases\Service-1.0.0-full.nupkg
-		Releases\Service-1.0.1-delta.nupkg = Releases\Service-1.0.1-delta.nupkg
-		Releases\Service-1.0.1-full.nupkg = Releases\Service-1.0.1-full.nupkg
-		Releases\Setup.exe = Releases\Setup.exe
-		Releases\Setup.msi = Releases\Setup.msi
-	EndProjectSection
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Deployment", "Deployment\Deployment.vdproj", "{3262D9D1-5143-4058-8210-0BF1BC4D2676}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,12 +22,11 @@ Global
 		{A467736D-7EA3-44EC-9170-E795A315B6D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A467736D-7EA3-44EC-9170-E795A315B6D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A467736D-7EA3-44EC-9170-E795A315B6D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3262D9D1-5143-4058-8210-0BF1BC4D2676}.Debug|Any CPU.ActiveCfg = Debug
+		{3262D9D1-5143-4058-8210-0BF1BC4D2676}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{11C569CB-9181-45A7-9FC3-D83407F55ED8} = {012DB22E-3BEC-4BF0-96AF-ED4207DA3D4E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {182E1EF4-15E7-41FF-AC8D-DDBE23AFAE2C}

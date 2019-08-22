@@ -19,23 +19,25 @@
     <h1>IPC-Service-Notification</h1>
     IPC-[something] Client/Server Example in C#
 
-    <h2>Using a [something] for IPC</h2>
+    <h2>Using a [something maybe <a href="https://dotnet.microsoft.com/apps/aspnet/signalr">SignalR</a>] for IPC</h2>
     <div class="boxed">
 
         <h3>
             Service
         </h3>
         <p>
-        The service is written as a Console application so troubleshooting is easier.  It can be run as a Console application, but is designed as a service
-            <br />
-         The service can be installed by running the application with the following command line parameters:
+            The service is written as a Console application using the TopShelf plug-in so troubleshooting is easier.  It can be run as a Console application, but is designed as a service.  Information on the TopShelf plug-in can be found <a href="http://topshelf-project.com/">here</a>
+        </p>
+        <p>
+            The service can be installed by running the application with the following command line parameters:
             <ul>
-                <li>Coffee</li>
-                <li>Tea</li>
-                <li>Coca Cola</li>
-                <li>Monster drink</li>
+                <li>service.exe install start</li>
+                <li>service.exe uninstall</li>
+                <li>service.exe <i>-instance</i> (if registering the service multiple times)</li>
+                <li>service.exe <i>-username -password</i></li>
+                <li>service.exe help</li>
             </ul>
-
+            Along with a multitude of examples which can be found <a href="https://topshelf.readthedocs.io/en/latest/overview/commandline.html">here</a>
         </p>
 
         <h3>
@@ -49,18 +51,21 @@
             Deployment
         </h3>
         <p>
+            The deployment method used for this solution is the Visual Studio Package Manager.   I had previously used Squirrel Package Manager with it, but it did not give me the options that I was looking for so I am currently switching off of Squirrel and onto the VS Package Manager.  
+        </p>
+        <p>
             The package is deployed by using Squirrel Package manager, this is done from with-in the Visual Studio Package Manager Console.  Simply select the Package Manager Console (View &#8594; Other Windows &#8594; Package Manager Console) and type:  <b>Squirrel --releasify Service.1.0.0.nupkg</b>.  This will use your nupkg file to create the EXE and MSI files.  A new nupkg file should be created for each release and added to source control.
         </p>
     </div>
     <hr />
     <p>
         IPC Example copied from:<br />
-        <a href="https://code.msdn.microsoft.com/windowsapps/CSMailslotServer-1ca18b47/sourcecode?fileId=21681&amp;pathId=105306450" rel="nofollow">https://code.msdn.microsoft.com/windowsapps/CSMailslotServer-1ca18b47/sourcecode?fileId=21681&amp;pathId=105306450</a>
+        <a href="https://code.msdn.microsoft.com/windowsapps/CSMailslotServer-1ca18b47/sourcecode?fileId=21681&amp;pathId=105306450">https://code.msdn.microsoft.com/windowsapps/CSMailslotServer-1ca18b47/sourcecode?fileId=21681&amp;pathId=105306450</a>
     </p>
 
     <p>
         Documentation from:<br />
-        <a href="https://docs.microsoft.com/en-us/windows/win32/ipc/interprocess-communications#using-a-mailslot-for-ipc" rel="nofollow">https://docs.microsoft.com/en-us/windows/win32/ipc/interprocess-communications#using-a-mailslot-for-ipc</a>
+        <a href="https://docs.microsoft.com/en-us/windows/win32/ipc/interprocess-communications#using-a-mailslot-for-ipc">https://docs.microsoft.com/en-us/windows/win32/ipc/interprocess-communications#using-a-mailslot-for-ipc</a>
     </p>
 </body>
 </html>
