@@ -45,6 +45,20 @@ namespace Service
                 x.SetDisplayName("Heartbeat Service");
                 x.SetDescription("This is the sample heartbeat service");
                 x.StartAutomatically();
+                x.EnableServiceRecovery(r =>
+                {
+                    //you can have up to three of these
+                    r.RestartService(0);
+                    r.RunProgram(7, "\"C:\\Windows\\System32\\SC.exe\"start heartbeatservice");
+                    //the last one will act for all subsequent failures
+                    r.RestartComputer(2, "A failure has occurred and this system will be restarted");
+
+                    //should this be true for crashed or non-zero exits
+                    r.OnCrashOnly();
+
+                    //number of days until the error count resets
+                    r.SetResetPeriod(1); // set the reset interval to one day
+                });
             });
             int exitCodeValue = (int)Convert.ChangeType(exitCode, exitCode.GetTypeCode());
             Environment.ExitCode = exitCodeValue;
