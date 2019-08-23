@@ -102,7 +102,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Heartbeat.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="ServiceProgram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

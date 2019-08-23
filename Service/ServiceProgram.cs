@@ -24,7 +24,7 @@ using Topshelf;
 
 namespace Service
 {
-    class Program
+    class ServiceProgram
     {
         static void Main(string[] args)
         {

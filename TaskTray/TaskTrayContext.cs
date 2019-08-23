@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows.Forms;
 
 namespace TaskTrayApplication
@@ -9,22 +7,25 @@ namespace TaskTrayApplication
     {
         NotifyIcon notifyIcon = new NotifyIcon();
         Configuration configWindow = new Configuration();
+        //Configuration aboutWindow = new About();
 
         public TaskTrayApplicationContext()
         {
             MenuItem configMenuItem = new MenuItem("Configuration", new EventHandler(ShowConfig));
+            //MenuItem.aboutMenuItem = new MenuItem("About", new EventHandler(ShowAbout));
             MenuItem exitMenuItem = new MenuItem("Exit", new EventHandler(Exit));
 
-            notifyIcon.Icon = TaskTrayApplication.Properties.Resources.AppIcon;
+            notifyIcon.Icon = TaskTray.Properties.Resources.AppIcon;
             notifyIcon.DoubleClick += new EventHandler(ShowMessage);
             notifyIcon.ContextMenu = new ContextMenu(new MenuItem[] { configMenuItem, exitMenuItem });
+            //notifyIcon.ContextMenu = new ContextMenu(new MenuItem[] { aboutMenuItem, exitMenuItem });
             notifyIcon.Visible = true;
         }
 
         void ShowMessage(object sender, EventArgs e)
         {
             // Only show the message if the settings say we can.
-            if (TaskTrayApplication.Properties.Settings.Default.ShowMessage)
+            if (TaskTray.Properties.Settings.Default.ShowMessage)
                 MessageBox.Show("Hello World");
         }
 
@@ -36,6 +37,15 @@ namespace TaskTrayApplication
             else
                 configWindow.ShowDialog();
         }
+
+        //void ShowAbout(object sender, EventArgs e)
+        //{
+        //    // If we are already showing the window meerly focus it.
+        //    if (aboutWindow.Visible)
+        //        aboutWindow.Focus();
+        //    else
+        //        aboutWindow.ShowDialog();
+        //}
 
         void Exit(object sender, EventArgs e)
         {

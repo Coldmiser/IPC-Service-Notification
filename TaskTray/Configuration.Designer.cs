@@ -66,6 +66,7 @@ namespace TaskTrayApplication
             this.cancelButton.TabIndex = 2;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // Configuration
             // 
@@ -79,8 +80,8 @@ namespace TaskTrayApplication
             this.MaximizeBox = false;
             this.Name = "Configuration";
             this.Text = "Configuration";
-            this.Shown += new System.EventHandler(this.LoadSettings);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SaveSettings);
+            this.Shown += new System.EventHandler(this.LoadSettings);
             this.ResumeLayout(false);
             this.PerformLayout();
 

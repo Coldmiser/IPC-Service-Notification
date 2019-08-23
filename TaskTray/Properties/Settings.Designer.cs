@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TaskTrayApplication.Properties {
+namespace TaskTray.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
